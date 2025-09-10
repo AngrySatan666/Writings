@@ -1,0 +1,418 @@
+% Collapse--Churn Model of our Reality
+
+% <!-- [SS-1]: Import Packages ----->
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\setlength{\headheight}{22pt} % Fix header height warning
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{authblk}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{caption}
+
+% <!-- [SS-2]: Article Styling ----->
+% /2.1/ Color Scheme
+\definecolor{primaryblue}{RGB}{25, 90, 150}
+\definecolor{accentblue}{RGB}{50, 120, 200}
+\definecolor{lightgray}{RGB}{245, 245, 245}
+\definecolor{darkgray}{RGB}{80, 80, 80}
+
+% /2.2/ Hyperlink
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primaryblue,
+    citecolor=primaryblue,
+    urlcolor=accentblue,
+    bookmarksopen=true,
+    pdfpagemode=UseOutlines
+}
+
+% /2.3/ Page Styling
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{darkgray}{Collapse--Churn Model}}
+\fancyhead[R]{\small\textcolor{darkgray}{\thepage}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{primaryblue}\leaders\hrule height \headrulewidth\hfill}}
+
+% /2.4/ Section Styling
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}[\vspace{-0.5em}\textcolor{primaryblue}{\titlerule[0.8pt]}]
+
+\titleformat{\subsection}
+  {\large\bfseries\color{darkgray}}
+  {\thesubsection}{1em}{}
+
+% /2.5/ Postulate Boxes
+\newtcolorbox{postulate}[1]{
+    colback=lightgray,
+    colframe=primaryblue,
+    fonttitle=\bfseries,
+    title=#1,
+    boxrule=1pt,
+    arc=3pt,
+    left=8pt,
+    right=8pt,
+    top=8pt,
+    bottom=8pt
+}
+
+\newtcolorbox{keyresult}{
+    colback=accentblue!10,
+    colframe=accentblue,
+    boxrule=1pt,
+    arc=3pt,
+    left=8pt,
+    right=8pt,
+    top=8pt,
+    bottom=8pt
+}
+
+% /2.6/ Custom Commands
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\braket}[1]{\langle #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\ket}[1]{| #1 \rangle}
+\newcommand{\Hev}{\mathrm{H}} % Heaviside
+\newcommand{\Boxe}{\Box} % d'Alembert
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\PP}{\mathcal{P}}
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+
+% /2.7/ Title and Meta
+\title{{\Large\bfseries\color{primaryblue}The Collapse--Churn Model of Emergence}\\
+{\large\color{darkgray}Geometry-First Collapse, Anchoring, and Emergent Physics}}
+
+\author[1]{AngrySatan666\thanks{Github: https://github.com/AngrySatan666}}
+\affil[1]{Independent Researcher}
+\date{\today}
+
+% <!-- [SS-3]: Titlepage ----->
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+\newpage
+
+% <!-- [SS-4]: Introduction ----->
+\section{Introduction}
+Standard quantum mechanics treats superposition as ontic and collapse as a probabilistic projection often tied to observation. Relativity treats space and time as geometric backgrounds shaped by energy. These frameworks remain disconnected and struggle with dark matter, dark energy, and the origin of time.
+
+We unify these domains by reinterpreting collapse as the primary physical process. Energy always collapses; persistence emerges only via \emph{anchoring}. Space, time, and matter arise statistically from successful persistence. This \emph{collapse--churn} picture reframes quantum indeterminacy and relativistic geometry as consequences of the same substrate dynamics.
+
+% <!-- [SS-5]: Abstract ----->
+\vspace{5em}
+\begin{abstract}
+    \noindent We propose a set of postulates unifying quantum measurement, relativity, and cosmology under a single dynamical principle: \emph{\textcolor{primaryblue}{continuous collapse and recoherence of energy}}.
+    Collapse is not observer-induced but universal and timeless.
+    Persistence arises only when collapses mutually anchor, yielding emergent space, time, and stable matter. Observation is redefined as an emergent form of anchoring, possible only after initial collapses have persisted.
+    Time dilation, gravity, and dark matter follow naturally as statistical consequences of collapse--recoherence churn.
+    The framework is specified via CSL-type dynamics with causal rate modulation by an anchor field, a geometry-first postulate, retarded Green's functions, and persistence thresholds, leading to falsifiable astrophysical and laboratory predictions.
+\end{abstract}
+
+\vspace{1em}
+
+% <!-- [SS-6]: Postulates ----->
+\section{Postulates}
+
+% /6.1/ Postulate 1: Universal Collapse
+\begin{postulate}{Postulate 1: Universal Collapse}
+    All energy collapses continuously and universally into configurations permitted by its probability structure. State evolution follows a CSL-type It\^o SDE:
+    \begin{align}
+    d|\psi_t\rangle&=\Big[-\tfrac{i}{\hbar}H\,dt-\tfrac12\!\int\!d^3x\,\Gamma(x)\,\big(\hat A(x)-\braket{\hat A(x)}_t\big)^2dt \nonumber\\
+    &\qquad\qquad+\!\int\!d^3x\,\big(\hat A(x)-\braket{\hat A(x)}_t\big)\,dW_t(x)\Big]|\psi_t\rangle, \label{eq:SSE}
+    \end{align}
+    with white-noise correlations
+    \begin{align}
+    \mathbb E\big[dW_t(x)dW_t(y)\big]=\Gamma(x)\,\delta^{(3)}(x-y)\,dt,
+    \end{align}
+    and \emph{smeared} mass--density collapse operators
+    \begin{align}
+    \hat A(x)=\!\int\!d^3y\,g_\sigma(x-y)\,\hat M(y),\quad
+    g_\sigma(r)=\frac{1}{(2\pi\sigma^2)^{3/2}}e^{-|r|^2/(2\sigma^2)}.
+    \end{align}
+    The local collapse rate is modulated by an anchor field $I(x)$:
+    \begin{align}
+    \Gamma(x)=\gamma_0\big[1+\lambda I(x)\big],\qquad \gamma_0>0,\ \lambda\ge 0. \label{eq:GammaDef}
+    \end{align}
+    If anchoring fails, collapses immediately recohere. Collapse frequencies follow the Born measure $|\alpha|^2$ (Gleason noncontextuality and quadratic weighting).
+\end{postulate}
+
+\section{Collapse dynamics (v1.1)}\label{sec:collapse}
+Averaging \eqref{eq:SSE} yields the Lindblad master equation:
+\begin{align}
+\dot\rho=-\frac{i}{\hbar}[H,\rho]-\frac12\!\int\!d^3x\,\Gamma(x)\,[\hat A(x),[\hat A(x),\rho]]. \label{eq:Master}
+\end{align}
+This is completely positive and trace-preserving. The anchor coupling \eqref{eq:GammaDef} modifies rates only, preserving the quadratic structure and the Born rule.
+
+\paragraph{Off-diagonal suppression.}
+Let $\hat A_f=\int f(x)\hat A(x)\,d^3x$ with eigenbasis $\{\ket{a}\}$. Off-diagonals obey
+\begin{align}
+\frac{d}{dt}\rho_{ab}\sim -\frac12\!\int\!d^3x\,\Gamma(x)\,\big(A_a(x)-A_b(x)\big)^2\,\rho_{ab}\quad (a\neq b).
+\end{align}
+Pointer selection is toward (smeared) mass density eigenprojectors.
+
+\paragraph{Norm/positivity and no-signaling.}
+With local Hermitian Lindblad densities $L_x=\sqrt{\Gamma(x)}\hat A(x)$ and $[L_x,L_y]=0$ for spacelike separation, microcausality holds. If $\Gamma$ depends only on past-light-cone data via $I$ propagated by $G_{\mathrm{ret}}$, parameter independence is enforced and no controllable FTL arises.
+\vspace{1em}
+
+% /6.2/ Postulate 2: Persistence Requires Anchoring
+\begin{postulate}{Postulate 2: Persistence Requires Anchoring}
+    A collapse becomes persistent (\emph{blue}) only when constrained by simultaneous interactions with other collapses or existing persistent structures. Define an \emph{anchor score}:
+    \begin{align}
+    \Acal(x,t)=\!\int\!d^3y\,G_{\mathrm{ret}}(x-y)\,\rho_{\mathrm{blue}}(y,t),
+    \end{align}
+    with causal kernel
+    \begin{align}
+    G_{\mathrm{ret}}(x-y)=\frac{\delta\big(t_x-t_y-|\mathbf{x}-\mathbf{y}|/c\big)}{4\pi|\mathbf{x}-\mathbf{y}|}\,,
+    \end{align}
+    and persistence condition $\Acal(x,t)\ge \Theta$ (dimensionless threshold). \emph{Causality:} anchoring influence propagates at $\le c$ via $G_{\mathrm{ret}}$, enforcing parameter independence (no controllable superluminal signaling).
+\end{postulate}
+
+\section{Anchor score formalism (v1.1)}\label{sec:anchor}
+Let $\rho_{\mathrm{blue}}(x,t)$ be the density of persistent collapses; define shadow density $\rho_{\mathrm{shadow}}=\rho_{\mathrm{tot}}-\rho_{\mathrm{blue}}$ (all attempts). Coupled rate equations:
+\begin{align}
+\partial_t \rho_{\mathrm{blue}}&=\Gamma_{\mathrm{persist}}\rho_{\mathrm{shadow}}-\Gamma_{\mathrm{recohere}}\rho_{\mathrm{blue}}, \label{eq:blueRate}\\
+\partial_t \rho_{\mathrm{shadow}}&=-\Gamma_{\mathrm{persist}}\rho_{\mathrm{shadow}}+\Gamma_{\mathrm{recohere}}\rho_{\mathrm{blue}},\label{eq:shadowRate}
+\end{align}
+conserve $\rho_{\mathrm{tot}}$.
+
+\paragraph{Rates from anchoring.}
+Using $\Acal(x,t)$ and $I(x,t)$:
+\begin{align}
+\Gamma_{\mathrm{persist}}(x,t)&=\gamma_0\big[1+\lambda I(x,t)\big]\ \Hev\big(\Acal(x,t)-\Theta\big),\label{eq:GammaPersist}\\
+\Gamma_{\mathrm{recohere}}(x,t)&=\gamma_0\big[1-\lambda I(x,t)\big]\ \Hev\big(\Theta-\Acal(x,t)\big),\label{eq:GammaRecoh}
+\end{align}
+with $\Hev$ the Heaviside step and $\Theta$ the persistence threshold (dimensionless). High anchor score $\Rightarrow$ persistence dominates; low score $\Rightarrow$ recoherence dominates.
+
+\paragraph{Shadow fingerprints.}
+Transient failures contribute to effective stress--energy:
+\begin{align}
+T^{\mu\nu}_{\mathrm{eff}}=T^{\mu\nu}_{\mathrm{blue}}+\sigma\,T^{\mu\nu}_{\mathrm{shadow}},\qquad 0<\sigma\le 1.\label{eq:Teff}
+\end{align}
+
+\paragraph{Anchor field dynamics.}
+Causal, damped wave equation sourced by blue density:
+\begin{align}
+\Boxe I(x,t)+\alpha\,\partial_t I(x,t)=\kappa\,\rho_{\mathrm{blue}}(x,t),\label{eq:AnchorPDE}
+\end{align}
+with damping $\alpha$ and coupling $\kappa$.
+
+\vspace{1em}
+\vspace{1em}
+
+% /6.3/ Postulate 3: Emergence of Space and Time (Geometry-First)
+\begin{postulate}{Postulate 3: Emergence of Space and Time (Geometry-First)}
+\textbf{Geometry is the first result of every collapse:} each collapse yields a concrete geometric relation (point, distance, or orientation) before any higher-order structure. \textbf{Space} is the relational web of these geometric outputs stitched by persistent collapses. \textbf{Time} is the ordered record of successive persistent geometric outcomes. The \emph{substrate} is the Hilbert space of possible configurations; ``timeless'' means ordering arises only from collapse events.
+\end{postulate}
+
+% /6.4/ Postulate 4: Recoherence and Stability
+\begin{postulate}{Postulate 4: Recoherence and Stability}
+Unanchored collapses recohere. Persistent states continually attempt to recohere but are immediately re-collapsed by their anchoring network. Persistence is a dynamic equilibrium.
+\end{postulate}
+\vspace{1em}
+
+% /6.5/ Postulate 5: Emergent Physics
+\begin{postulate}{Postulate 5: Emergent Physics}
+Our observed world is the persistent residue of churn. Quantum interference is the statistics of persistence vs.\ recoherence. Time dilation is a bookkeeping load effect. Gravity emerges from anchored networks curving the effective spacetime. Transient collapses act as shadow mass.
+\end{postulate}
+\vspace{1em}
+
+% /6.6/ Postulate 6: Conservation Through Churn
+\begin{postulate}{Postulate 6: Conservation Through Churn}
+Define blue/shadow energy densities $\varepsilon_{\mathrm{blue}},\varepsilon_{\mathrm{shadow}}$ and currents $\mathbf j_{\mathrm{blue}},\mathbf j_{\mathrm{shadow}}$ (Sec.~\ref{sec:conservation}). Local continuity:
+\begin{align}
+\partial_t(\varepsilon_{\mathrm{blue}}+\varepsilon_{\mathrm{shadow}})+\nabla\cdot(\mathbf j_{\mathrm{blue}}+\mathbf j_{\mathrm{shadow}})=0. \label{eq:localContinuity}
+\end{align}
+\end{postulate}
+
+\section{Conservation law (v1.3)}\label{sec:conservation}
+
+\subsection{Global energy rate from CSL}
+From \eqref{eq:Master}:
+\begin{align}
+\frac{d}{dt}\braket{H}=\Tr(H\dot\rho)=-\frac12\!\int\!d^3x\,\Gamma(x)\,\Tr\!\big(H[\hat A,[\hat A,\rho]]\big)
+=-\frac12\!\int\!d^3x\,\Gamma(x)\,\big\langle[\hat A,[H,\hat A]]\big\rangle.\label{eq:dHdt}
+\end{align}
+\emph{Churn-neutrality:} if $[\hat A,[H,\hat A]]=0$ (e.g.\ appropriate smearing and $H$ class), then $d\braket{H}/dt=0$ in isolation. Otherwise the rate is bounded $O(\gamma_0)$ (no GRW-style blow-up) for standard CSL parameters.
+
+\subsection{Local continuity}
+Define
+\begin{align}
+\varepsilon_{\mathrm{blue}}=\bar m c^2\,\rho_{\mathrm{blue}},\quad \varepsilon_{\mathrm{shadow}}=\sigma\,\bar m c^2\,\rho_{\mathrm{shadow}},\quad
+\mathbf j_{\mathrm{blue}}=\mathbf v_{\mathrm{blue}}\rho_{\mathrm{blue}},\quad \mathbf j_{\mathrm{shadow}}=\mathbf v_{\mathrm{shadow}}\rho_{\mathrm{shadow}},
+\end{align}
+where drift fields $\mathbf v_{\mathrm{blue,shadow}}$ are induced causally via \eqref{eq:AnchorPDE}. Multiply \eqref{eq:blueRate}--\eqref{eq:shadowRate} by energy weights and add; choosing $\sigma=1$ (or enforcing $\Gamma_{\mathrm{recohere}}/\Gamma_{\mathrm{persist}}=\rho_{\mathrm{shadow}}/\rho_{\mathrm{blue}}$) yields the exact local continuity \eqref{eq:localContinuity}:
+\begin{align}
+\partial_t\varepsilon_{\mathrm{tot}}+\nabla\cdot\mathbf j_{\mathrm{tot}}=0,\quad
+\varepsilon_{\mathrm{tot}}=\varepsilon_{\mathrm{blue}}+\varepsilon_{\mathrm{shadow}},\ \mathbf j_{\mathrm{tot}}=\mathbf j_{\mathrm{blue}}+\mathbf j_{\mathrm{shadow}}.\label{eq:ContFinal}
+\end{align}
+
+\subsection{Heating bounds}
+Using \eqref{eq:dHdt} for nonrelativistic $H=\sum_i \hat p_i^2/2m_i+V(\hat x)$ and Gaussian smearing,
+\begin{align}
+\big[\hat A,[H,\hat A]\big]=\sum_i\frac{\hbar^2}{m_i}\,\big|\nabla g_\sigma\big|^2 * \hat n_i(\hat x)\ \Rightarrow\
+\frac{d}{dt}\braket{H}\sim \gamma_0\sum_i\frac{\hbar^2}{m_i\sigma^2}\cdot C(I,\lambda),
+\end{align}
+with $C(I,\lambda)=\int d^3x\,[1+\lambda I(x)](\cdots)$ bounded. Standard CSL $\sigma$ and $\gamma_0$ keep heating within experimental limits; anchoring rescales by $(1+\lambda I)\le (1+\lambda)$.
+
+\subsection{Diagnostics (for simulation/lab)}
+Global conservation and causal flux checks:
+\begin{align}
+\mathcal C_1(t)=\int d^3x\,\varepsilon_{\mathrm{tot}}(x,t)\ \text{(const)},\quad
+\mathcal C_2(t,\Omega)=\int_\Omega d^3x\,\varepsilon_{\mathrm{tot}}+\int_{\partial\Omega}\mathbf j_{\mathrm{tot}}\cdot d\mathbf S=0.
+\end{align}
+No-signaling test: modulate $I$ in region A; measure $\Delta\rho_{\mathrm{blue}}$ in spacelike-separated B. Expect zero until causal arrival.
+
+\section{Relativity mapping (v1.4)}
+\subsection{Weak-field time dilation}
+Assume local persistence rate scales as $R(x)=R_0\sqrt{1-\lambda I(x)}$, giving
+\begin{align}
+\frac{d\tau}{dt}=\frac{R}{R_0}=\sqrt{1-\lambda I(x)}\simeq 1-\frac12\lambda I(x).
+\end{align}
+Match to GR (static weak field $|\Phi|/c^2\ll1$):
+\begin{align}
+\frac{d\tau}{dt}\simeq \sqrt{1-\frac{2\Phi}{c^2}}\simeq 1-\frac{\Phi}{c^2}\quad\Rightarrow\quad \frac12\lambda I(x)=\frac{\Phi(x)}{c^2}. \label{eq:PhiMap}
+\end{align}
+Poisson equation relates potential to effective energy density:
+\begin{align}
+\nabla^2\Phi=4\pi G\,\frac{\varepsilon_{\mathrm{eff}}}{c^2},\quad \varepsilon_{\mathrm{eff}}=\varepsilon_{\mathrm{blue}}+\varepsilon_{\mathrm{shadow}}. \label{eq:Poisson}
+\end{align}
+
+\subsection{Linearized Einstein and PPN}
+In Lorenz gauge, linearized field equations are
+\begin{align}
+\square \bar h_{\mu\nu}=-\frac{16\pi G}{c^4}T^{\mathrm{eff}}_{\mu\nu},\quad g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu}.
+\end{align}
+For static isotropic weak fields,
+\begin{align}
+ds^2=-(1+2\Phi/c^2)c^2dt^2+(1-2\gamma_{\mathrm{PPN}}\Phi/c^2)\,d\mathbf x^2.
+\end{align}
+We require $\gamma_{\mathrm{PPN}}=1+\delta_\gamma(\lambda,\alpha,\kappa,\sigma)$ with $|\delta_\gamma|\ll 10^{-5}$ (Cassini bound).
+
+\subsection{Covariant sketch (Tomonaga--Schwinger)}
+Define state functional on spacelike hypersurfaces $\Psi[\Sigma]$:
+\begin{align}
+\delta\Psi[\Sigma]=\Big(-\tfrac{i}{\hbar}\int_\Sigma d\Sigma_\mu\,\hat T^{\mu\nu}n_\nu
+-\tfrac12\int_\Sigma d\Sigma_\mu\,\Gamma(x)\,[\hat A(x),[\hat A(x),\cdot]]\Big)\Psi[\Sigma],\quad \Gamma(x)=\gamma_0[1+\lambda I(x)],
+\end{align}
+with $I$ evolving via a covariant retarded equation $\nabla_\alpha\nabla^\alpha I=J(\langle \hat T^{00}\rangle_{\mathrm{blue}})$. Local densities commute at spacelike separation, preserving microcausality.
+
+\subsection{Kinematic+structural dilation}
+For 3-velocity $v$,
+\begin{align}
+\frac{d\tau}{dt}=\sqrt{(1-\lambda I)-\frac{v^2}{c^2}}+O\big((\Phi/c^2)^2\big),
+\end{align}
+so kinematic broadening and structural load add at leading order.
+
+% <!-- [SS-7]: Relational Models ----->
+\section{Relations to existing models}
+
+\begin{description}[leftmargin=0em, itemsep=0.8em]
+\item[\textcolor{primaryblue}{\textbf{GRW / objective collapse:}}] agrees collapse is objective; extension: continuous and universal, with anchoring determining persistence.
+
+\item[\textcolor{primaryblue}{\textbf{Diósi--Penrose:}}] links gravity and collapse; here collapse is primary, gravity emergent from anchored networks.
+
+\item[\textcolor{primaryblue}{\textbf{Objective Reduction (Orch-OR):}}] collapse intrinsic, not substrate-specific.
+
+\item[\textcolor{primaryblue}{\textbf{Emergent gravity (Jacobson, Verlinde):}}] spacetime emergent; driver is collapse--recoherence rather than entropy.
+
+\item[\textcolor{primaryblue}{\textbf{Page--Wootters:}}] time emergent; arises here from ordered persistent geometry.
+
+\item[\textcolor{primaryblue}{\textbf{Quantum Darwinism:}}] redundancy stabilizes pointer states; \emph{observation} is operationally defined as raising $\Acal$ above $\Theta$ in $\ge 2$ subsystems.
+
+\item[\textcolor{primaryblue}{\textbf{Triadic emergence (relational):}}] collapse is binary, but each anchored outcome implies a triad: anchored value, null baseline, inverse reflection. Analogies: Dirac $\pm E$ with vacuum $0$, CPT, Pauli triplets, QCD color triads, 3D orientation. Triadic is relational, not three realized outcomes.
+\end{description}
+
+% <!-- [SS-8]: Methods Roadmap ----->
+\section{Methods roadmap}
+
+\begin{enumerate}[leftmargin=1.5em, itemsep=0.5em]
+\item \textbf{Theoretical development:} Derive decoherence rates including gravitational dilation contribution
+\item \textbf{Numerical simulation:} Simulate causal automata for $I,\rho_{\mathrm{blue}}$ with diagnostics $\{\mathcal C_1,\mathcal C_2\}$
+\item \textbf{Observational constraints:} Fit halo profiles and merger lensing to extract $\{\lambda,\Theta,\sigma\}$
+\item \textbf{Covariant extension:} Develop covariant Tomonaga--Schwinger extension and bound $\delta_\gamma$
+\end{enumerate}
+
+\vspace{1em}
+
+% <!-- [SS-9]: Predictions ----->
+\section{Predictions (v1.5)}
+
+\begin{keyresult}
+\textbf{Key Predictions Summary:}
+\begin{itemize}[leftmargin=1em, itemsep=0.5em]
+    \item \textbf{Dwarf galaxy suppression:} $M_{\min} \sim 10^{8-9} M_\odot$
+    \item \textbf{Small-scale power cutoff:} CMB/Ly-$\alpha$ damping at $k > k_c$
+    \item \textbf{Gravitational lensing:} Shadow mass offsets in galaxy mergers
+    \item \textbf{Laboratory test:} Decoherence rate shifts $\sim 10^{-15}$ in gravitational fields
+\end{itemize}
+\end{keyresult}
+
+\vspace{1em}
+\subsection[Minimum halo mass (dwarf suppression)]{Minimum halo mass $M_{\min}$ (dwarf suppression)}
+Mean anchor score within virial radius $R_{\mathrm{vir}}$:
+\begin{align}
+\overline{\Acal}(R_{\mathrm{vir}})\sim \int_{|\mathbf r|\le R_{\mathrm{vir}}}\frac{\rho_{\mathrm{blue}}(\mathbf r)}{4\pi|\mathbf r|}\,d^3r \ \gtrsim\ \Theta.
+\end{align}
+With $\rho_{\mathrm{blue}}\simeq \rho_{\mathrm{vir}}=\Delta_c\rho_{\mathrm{crit}}$ and $M=\frac{4\pi}{3}\rho_{\mathrm{vir}}R_{\mathrm{vir}}^3$:
+\begin{align}
+\overline{\Acal}\sim \rho_{\mathrm{vir}}^{-1/3}M^{2/3}\quad\Rightarrow\quad M_{\min}\sim \big(\Theta\,\rho_{\mathrm{vir}}^{1/3}\big)^{3/2}.
+\end{align}
+Tie $\Theta=\chi\,\rho_{\mathrm{Pl}}/\rho_0$ with $\rho_0$ a fiducial density; expect suppressed halo mass function below $M_{\min}\sim 10^{8\text{--}9}M_\odot$ (calibrated by satellites).
+
+\subsection[Small-scale power cutoff (CMB/Ly-alpha)]{Small-scale power cutoff $k_c$ (CMB/Ly-$\alpha$)}
+Persistence acts as a cold component with small-scale suppression when $\Acal<\Theta$. Use transfer function
+\begin{align}
+P_{\mathrm{churn}}(k)=T^2(k)P_{\Lambda \mathrm{CDM}}(k),\quad T(k)=\frac{1}{1+(k/k_c)^\nu},\ \nu\simeq 2\text{--}4.
+\end{align}
+Cutoff from anchor reach $R_A$ solving $\Acal(R_A)=\Theta$: $k_c\sim 1/R_A$. Predict mild damping at $k\gtrsim k_c$ in CMB lensing and Ly-$\alpha$.
+
+\subsection{Lensing and mergers (Bullet-Cluster type)}
+Shadow is collisionless: lensing peaks (blue+shadow) offset from X-ray gas in mergers. Offsets constrain $\{\sigma,\lambda,\Theta\}$. Forward-model $T^{00}_{\mathrm{eff}}\to \Phi\to \kappa$-maps.
+
+\subsection[PPN parameter gamma]{PPN parameter $\gamma_{\mathrm{PPN}}$}
+Solve linearized field with $T^{\mu\nu}_{\mathrm{eff}}$; enforce $|\delta_\gamma|\lesssim 10^{-5}$, constraining $\{\lambda,\alpha,\kappa,\sigma\}$.
+
+\subsection{Optomechanics decoherence shift (lab)}
+Assume rate scales with redshift:
+\begin{align}
+\Gamma(h)=\Gamma_0\sqrt{1-\tfrac{2gh}{c^2}}\simeq \Gamma_0\Big(1-\frac{gh}{c^2}\Big),
+\end{align}
+equivalently using \eqref{eq:PhiMap} with $\tfrac12\lambda I=\Phi/c^2=gh/c^2$. For $g\simeq 9.8\,\mathrm{m/s^2}$ and $h\simeq 10\,\mathrm{m}$, $\Delta\Gamma/\Gamma_0\sim 10^{-15}$. Enhance with tall towers, high-$Q$ levitated spheres, or space-based gradients.
+
+\subsection{No-signaling test}
+Prepare spacelike-separated regions $A,B$. Modulate $I$ in $A$; measure $\rho_{\mathrm{blue}}$ in $B$. Expect null response until $t=|\mathbf x_B-\mathbf x_A|/c$.
+
+
+% <!-- [SS-10]: Conclusion ----->
+\section{Conclusion}
+
+\begin{keyresult}
+\textbf{Core Insight:} Collapse--Churn reframes collapse as the universe's fundamental activity. Geometry is the first output of collapse; persistence arises from anchoring; observation is emergent anchoring. Space, time, relativity, and quantum behavior arise from the same churn.
+\end{keyresult}
+
+\vspace{0.5em}
+
+The model is \textcolor{primaryblue}{\textbf{causal}} (retarded kernels, microcausality), \textcolor{primaryblue}{\textbf{conservative}} (local continuity), and \textcolor{primaryblue}{\textbf{predictive}} (dwarf suppression, small-scale damping, decoherence shifts). It offers a compact program to connect quantum foundations, gravity, and cosmology within a unified framework of emergent spacetime from fundamental collapse dynamics.
+
+\vspace{2em}
+\noindent\textbf{Acknowledgments.} Add collaborators/supporters.
+
+\bibliographystyle{unsrt}
+\bibliography{collapsechurn}
+
+\end{document}
