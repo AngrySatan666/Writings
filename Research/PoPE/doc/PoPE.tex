@@ -1,0 +1,205 @@
+% Collapse--Churn Model of our Reality
+
+% <!-- [SS-1]: Import Packages ----->
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\setlength{\headheight}{22pt}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{authblk}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{caption}
+
+% <!-- [SS-2]: Article Styling ----->
+% /2.1/ Color Scheme
+\definecolor{primaryblue}{RGB}{25, 90, 150}
+\definecolor{accentblue}{RGB}{50, 120, 200}
+\definecolor{lightgray}{RGB}{245, 245, 245}
+\definecolor{darkgray}{RGB}{80, 80, 80}
+
+% /2.2/ Hyperlink
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primaryblue,
+    citecolor=primaryblue,
+    urlcolor=accentblue,
+    bookmarksopen=true,
+    pdfpagemode=UseOutlines
+}
+
+% /2.3/ Page Styling
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{darkgray}{Triadic Emergence, Collapse, and Hyperstructures}}
+\fancyhead[R]{\small\textcolor{darkgray}{\thepage}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{primaryblue}\leaders\hrule height \headrulewidth\hfill}}
+
+% /2.4/ Section Styling
+\titleformat{\section}
+  {\Large\bfseries\color{primaryblue}}
+  {\thesection}{1em}{}[\vspace{-0.5em}\textcolor{primaryblue}{\titlerule[0.8pt]}]
+
+\titleformat{\subsection}
+  {\large\bfseries\color{darkgray}}
+  {\thesubsection}{1em}{}
+
+% /2.5/ Postulate Boxes
+\newtcolorbox{postulate}[1]{
+    colback=lightgray,
+    colframe=primaryblue,
+    fonttitle=\bfseries,
+    title=#1,
+    boxrule=1pt,
+    arc=3pt,
+    left=8pt,
+    right=8pt,
+    top=8pt,
+    bottom=8pt
+}
+
+\newtcolorbox{keyresult}{
+    colback=accentblue!10,
+    colframe=accentblue,
+    boxrule=1pt,
+    arc=3pt,
+    left=8pt,
+    right=8pt,
+    top=8pt,
+    bottom=8pt
+}
+
+% /2.6/ Custom Commands
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\braket}[1]{\langle #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\ket}[1]{| #1 \rangle}
+\newcommand{\Hev}{\mathrm{H}} % Heaviside
+\newcommand{\Boxe}{\Box} % d'Alembert
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\PP}{\mathcal{P}}
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+
+% /2.7/ Title and Meta
+\title{{\Large\bfseries\color{primaryblue}Triadic Emergence, Collapse, and Hyperstructures}\\
+{\large\bfseries\color{darkgray}The Principles of Probablistic Emergence}}
+
+\author[1]{\emph{Written By: }\bfseries{AngrySatan666}\thanks{Github Organization: https://github.com/Integrated-Developments}\thanks{Github Member: https://github.com/AngrySatan666}}
+\affil{Independent Researchers of \emph{\bfseries{Integrated-Developments}}}
+\date{Compiled: \today}
+
+% <!-- [SS-3]: Titlepage ----->
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+\newpage
+
+
+% <!-- [SS-4]: Index ----->
+\tableofcontents
+\newpage
+
+% <!-- [SS-5]: Pre-Face ----->
+\section{Pre-Face}
+    \subsection{What this document is and what it isn't}
+        \hspace{1em}
+        This document serves as the compilation of our research into the theoretical.
+        While we are not formally trained scientists or affiliated with any institutions,
+        we have endeavored to approach these ideas with rigor and an open mind.
+        Grounding ourselves in established principles and frameworks that a formally trained scientist would engage for such a proposal.
+        As such, the presentation of our ideas is not structured in the traditional academic format,
+        but rather one of flowing narrative interspersed with formal definitions and equations where appropriate.
+        Showcasing the evolution of our thought process as we grappled with these concepts and relating them to various established theories.
+        While presented in a non-traditional format, countless efforts have been made to stay academically rigorous and grammatical.
+        Though limited liberties have been taken in the interest of clarity and accessibility, resulting in a more informal tone at times.
+
+        Our claims and hypotheses are presented solely with the intent of fostering discussion and exploration within the scientific, and philosophical communities alike.
+        While we have strived for accuracy and strict coherence, We retain a sense of humility regarding the speculative nature of our work, and openly acknowledge that our ideas are speculative and unorthodox at best.
+        To maintain the most scientific grounding as possible, we have attempted to cite relevant works and theories where applicable, and strive to situate our ideals within the confinement of existing knowledge, without overstepping the bounds of our expertise, and lack thereof.
+        As such, any claims or ideals that may appear to contradict established scientific consensus have been thrown out, or reformed to fit as part of a broader speculative framework rather than definitive statements of fact.
+        Aiming to keep the discourse open and exploratory, yet scientifically grounded, rather than dogmatic or prescriptive.
+
+        While we have made efforts to ensure clarity and coherence in our writing, we recognize that our lack of formal training may have lead to our own massive oversights and/or misinterpretations,
+        as well as the large potential for our ideas to be misinterpreted by others. And thus we felt it obligatory to include this preface as a disclaimer of sorts.
+        And have peer reviewed our work to the best of our ability and limited resources, to ensure that our ideas are presented as clearly and accurately as possible.
+        Even to those without a strong background in physics, quantum mechanics, mathematics, or the sciences of related fields.
+
+    \subsection{No Claims of Originality or Ties to Existing Institutions}
+        \hspace{1em}
+        The ideas presented here are our own, and do not represent the views of any institution or organization.
+        We make no claims of sole sovereignty, and acknowledge that similar ideas may have been proposed in various forms throughout the history of science and philosophy.
+        We only claim originality in the specific synthesis and presentation of these ideas as they are laid out in this document.
+        Ownership of these ideas and their implications are not tied to any individual, but to the collective group of thinkers and researchers who have contributed on these topics, represented by the organization Integrated-Developments.
+        \emph{Formed by AngrySatan666, Mid 2025, to facilitate collaboration and discussion on Software Development and speculative scientific ideas.}
+        We do not claim to have all the answers, nor do we expect our ideas to be universally accepted or embraced.
+
+    \subsection{Religious and Philosophical Sensitivities}
+        \hspace{1em}
+        Though we do not shy away from discussing the philosophical implications of our ideas in a spiritual or religious sense.
+        We must stress that we do not wish to incite religious, political, or spiritual controversy in existing structures of any kind.
+        No matter how tangentially relevant they are.
+        We gave all efforts to approach these discussions with \emph{sensitivity} and \emph{respect} for diverse beliefs and perspectives, and offer our ideas as a contribution to the broader discourse, rather than a challenge to any particular worldview.
+        We humbly ask that readers approach our work with the same spirit of respect and open-mindedness, and strongly urge those to avoid using our ideas as a basis for divisive or inflammatory rhetoric.
+
+    \subsection{Invitation for Critical Engagement}
+        \hspace{1em}
+        We do, however, strongly encourage readers to approach our work with a critical eye, and to engage with the ideas presented here in a mannerism of open inquiry and constructive criticism.
+        Welcoming \emph{constructive} feedback, critiques, and alternative perspectives that can help refine and improve our understanding of these complex topics, their associations with established theories, and their implications for future insights or developments.
+        We would love to see our ideas being challenged, debated, and built upon by others in the scientific community in a testable and falsifiable manner.
+        Though we accept that our ideas may never leave the realm of speculation and philosophical wonder.
+
+    \subsection{The Journey Ahead}
+        \hspace{1em}
+        This document will begin by laying out the methods and principles that guided our exploration to reaching our conclusions.
+        Starting us off in a less than traditional manner by not relating to existing frameworks, but rather our non-credible understanding of them.
+
+        We Will then proceed to present our core ideas and hypotheses, supported by relevant equations, definitions, and references to established theories as much applicable.
+        With methods such as; Citing as many relevant sources as possible, including those that directly, and indirectly align with our views, as well as those that seek to dismantle it.
+        Citing accepted mathematical notations, physical frameworks, and computational models and/or simulations, attempts at our own mathematical formulations,
+        as well as thought experiments and analogies to illustrate our points and make them more accessible to a wider audience.
+        It is in our hope that this has created a comprehensive and well-rounded exploration of the topics at hand.
+
+        Finally, we will discuss the broader implications of our ideas, and suggest potential avenues for future research, simulation frameworks, and real world testable experiments.
+        With this, we ask you; To join us on this epic journey into the unknown, to dive into the realm of wonder and curiosity that lies at the heart of all scientific inquiry,
+        and to embrace the quest for knowledge and understanding that drives us forward as a species.
+\newpage
+
+% <!-- [SS-6]: Introduction ----->
+\section{Introduction}
+    \subsection{Where We Stand}
+        \hspace{1em}
+        Our current understanding of reality is hinged upon two pillars of scientific study.
+        \emph{Quantum Mechanics}, the rules of the very small.
+        and \emph{Relativity}, the rules of the very large.
+
+        These two pillars, while individually robust and well-tested, remain fundamentally disconnected.
+        Where quantum mechanics governs the \emph{dynamically} probabilistic behaviors of particles and fields and their propagation throughout space and time.
+        But also their interactions with quantum fields, other particles, their own wavefunctions, and their environment.
+        And where relativity describes the \emph{deterministic} geometric structures of spacetime itself, and the laws of physics that guide matter and energy within.
+
+        Standard quantum mechanics treats superposition as ontic and collapse as a probabilistic projection often tied to observation.
+        Relativity treats space and time as geometric backgrounds shaped by energy.
+        These frameworks remain disconnected and struggle with dark matter, dark energy, and the origin of time.
+
+        We unify these domains by reinterpreting collapse as the primary physical process.
+        Energy always collapses; persistence emerges only via \emph{anchoring}.
+        Space, time, and matter arise statistically from successful persistence.
+        This \emph{collapse--churn} picture reframes quantum indeterminacy and relativistic geometry as consequences of the same substrate dynamics.
+
+% <!-- [SS-6]: Content ----->
+
+% <!-- [SS-]: Conclusions ----->
+\end{document}

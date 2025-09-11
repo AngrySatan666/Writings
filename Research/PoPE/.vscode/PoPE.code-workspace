@@ -432,17 +432,16 @@
         "cSpell.files": [],
         "cSpell.dictionaries": [],
         "cSpell.customDictionaries": {
-            "Tcm": {
-                "name": "Tcm",
-                "description": "Custom dictionary for Intellicap project",
-                "path": "./.vscode/Tcm.dic",
+            "PoPE": {
+                "name": "PoPE",
+                "description": "Custom dictionary for TECH:PoPE Research",
+                "path": "./.vscode/PoPE.dic",
             }
         },
         "cSpell.dictionaryDefinitions": [],
         "cSpell.words": [
             "AngrySatan",
-            "AngrySatan666",
-            "Intellicap"
+            "AngrySatan666"
         ],
         "cSpell.ignoreWords": [],
         "cSpell.ignorePaths": [
@@ -479,31 +478,31 @@
                 "default": "debug",
                 "description": "The build type.",
                 "choices": {
-                        "debug": {
-                        "short": "Debug",
-                        "long": "Disable optimizations - include debug information.",
-                        "buildType": "Debug"
-                        },
-                        "release": {
-                        "short": "Release",
-                        "long": "Optimize for speed - exclude debug information.",
-                        "buildType": "Release"
-                        },
-                        "minsize": {
-                        "short": "MinSizeRel",
-                        "long": "Optimize for smallest binary size - exclude debug information.",
-                        "buildType": "MinSizeRel"
-                        },
-                        "reldeb": {
-                        "short": "RelWithDebInfo",
-                        "long": "Optimize for speed - include debug information.",
-                        "buildType": "RelWithDebInfo"
-                        },
-                        "unspecified": {
-                        "short": "Unspecified",
-                        "long": "Let CMake pick the default build type.",
-                        "buildType": "Unspecified"
-                        }
+                    "debug": {
+                    "short": "Debug",
+                    "long": "Disable optimizations - include debug information.",
+                    "buildType": "Debug"
+                    },
+                    "release": {
+                    "short": "Release",
+                    "long": "Optimize for speed - exclude debug information.",
+                    "buildType": "Release"
+                    },
+                    "minsize": {
+                    "short": "MinSizeRel",
+                    "long": "Optimize for smallest binary size - exclude debug information.",
+                    "buildType": "MinSizeRel"
+                    },
+                    "reldeb": {
+                    "short": "RelWithDebInfo",
+                    "long": "Optimize for speed - include debug information.",
+                    "buildType": "RelWithDebInfo"
+                    },
+                    "unspecified": {
+                    "short": "Unspecified",
+                    "long": "Let CMake pick the default build type.",
+                    "buildType": "Unspecified"
+                    }
                 }
             }
         },
@@ -523,7 +522,7 @@
         },
 
         //2.11: Format & Linting
-        "pylint.args": ["--rcfile=${workspaceFolder}/.pylintrc"],
+        "pylint.args": ["--rcfile=${workspaceFolder}/PoPE.pylintrc"],
         "eslint.enable": true,
         "eslint.lintTask.enable": false,
         "eslint.format.enable": true,
