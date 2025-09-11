@@ -1,9 +1,9 @@
-% Collapse--Churn Model of our Reality
+% TECH: PoPE
 
 % <!-- [SS-1]: Import Packages ----->
 \documentclass[11pt]{article}
 \usepackage[margin=1in]{geometry}
-\setlength{\headheight}{22pt}
+\setlength{\headheight}{27.625pt}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{authblk}
 \usepackage{bm}
@@ -17,6 +17,7 @@
 \usepackage{enumitem}
 \usepackage{booktabs}
 \usepackage{caption}
+\usepackage{changepage}
 
 % <!-- [SS-2]: Article Styling ----->
 % /2.1/ Color Scheme
@@ -35,15 +36,30 @@
     pdfpagemode=UseOutlines
 }
 
-% /2.3/ Page Styling
+% /2.3/ Custom Commands
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\braket}[1]{\langle #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\ket}[1]{| #1 \rangle}
+\newcommand{\Hev}{\mathrm{H}}
+\newcommand{\Boxe}{\Box}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\PP}{\mathcal{P}}
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\headertext}{}
+
+% /2.4/ Page Styling
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\textcolor{darkgray}{Triadic Emergence, Collapse, and Hyperstructures}}
+\fancyhead[L]{\small\textcolor{darkgray}{\emph{\headertext}}}
 \fancyhead[R]{\small\textcolor{darkgray}{\thepage}}
 \renewcommand{\headrulewidth}{0.5pt}
-\renewcommand{\headrule}{\hbox to\headwidth{\color{primaryblue}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\headrule}{\vspace{-0.5em}\hbox to\headwidth{\color{darkgray}\leaders\hrule height \headrulewidth\hfill}}
 
-% /2.4/ Section Styling
+% /2.5/ Section Styling
 \titleformat{\section}
   {\Large\bfseries\color{primaryblue}}
   {\thesection}{1em}{}[\vspace{-0.5em}\textcolor{primaryblue}{\titlerule[0.8pt]}]
@@ -52,7 +68,23 @@
   {\large\bfseries\color{darkgray}}
   {\thesubsection}{1em}{}
 
-% /2.5/ Postulate Boxes
+\titleformat{\subsubsection}
+  {\normalsize\bfseries\color{darkgray}}
+  {\hspace{1.5em}\thesubsubsection}{1em}{}
+
+\everymath{\medmuskip=4mu plus 2mu minus 2mu}
+
+\newenvironment{customenumerate}[1][]
+{
+    \begin{adjustwidth}{1em}{2em}
+    \begin{enumerate}[#1]
+}
+{
+    \end{enumerate}
+    \end{adjustwidth}
+}
+
+% /2.6/ Postulate Boxes
 \newtcolorbox{postulate}[1]{
     colback=lightgray,
     colframe=primaryblue,
@@ -77,43 +109,29 @@
     bottom=8pt
 }
 
-% /2.6/ Custom Commands
-\newcommand{\dd}{\mathrm{d}}
-\newcommand{\bbR}{\mathbb{R}}
-\newcommand{\braket}[1]{\langle #1 \rangle}
-\newcommand{\bra}[1]{\langle #1 |}
-\newcommand{\ket}[1]{| #1 \rangle}
-\newcommand{\Hev}{\mathrm{H}} % Heaviside
-\newcommand{\Boxe}{\Box} % d'Alembert
-\newcommand{\Tr}{\mathrm{Tr}}
-\newcommand{\PP}{\mathcal{P}}
-\newcommand{\Acal}{\mathcal{A}}
-\newcommand{\be}{\begin{equation}}
-\newcommand{\ee}{\end{equation}}
-
 % /2.7/ Title and Meta
-\title{{\Large\bfseries\color{primaryblue}Triadic Emergence, Collapse, and Hyperstructures}\\
-{\large\bfseries\color{darkgray}The Principles of Probablistic Emergence}}
+\title{{\Large\bfseries\color{primaryblue}Triadic Emergence, Collapse, and Hyperstructures:}\\
+{\large\bfseries\color{darkgray}The Principles of Probabilistic Emergence}}
 
-\author[1]{\emph{Written By: }\bfseries{AngrySatan666}\thanks{Github Organization: https://github.com/Integrated-Developments}\thanks{Github Member: https://github.com/AngrySatan666}}
-\affil{Independent Researchers of \emph{\bfseries{Integrated-Developments}}}
-\date{Compiled: \today}
+\author[1]{\emph{\hspace{2em}Written By: } \newline\bfseries{AngrySatan666}\thanks{Github Organization: https://github.com/Integrated-Developments}\thanks{Github Member: https://github.com/AngrySatan666}}
+\affil{\small Independent Researchers of \emph{\bfseries{Integrated-Developments}}}
+\date{Conceptualized: 9/5/2025 \\ Compiled: \today}
 
 % <!-- [SS-3]: Titlepage ----->
 \begin{document}
 
 \maketitle
-
-\thispagestyle{empty}
+    \thispagestyle{empty}
 \newpage
-
 
 % <!-- [SS-4]: Index ----->
 \tableofcontents
+    \renewcommand{\headertext}{(TECH: PoPE) Triadic Emergence, Collapse, and Hyperstructures: \\ \hspace*{3em}The Principles of Probabilistic Emergence}
 \newpage
 
 % <!-- [SS-5]: Pre-Face ----->
 \section{Pre-Face}
+    \renewcommand{\headertext}{(TECH: PoPE)\hspace{1em} SS-1: \hspace{1em}Pre-Face}
     \subsection{What this document is and what it isn't}
         \hspace{1em}
         This document serves as the compilation of our research into the theoretical.
@@ -145,7 +163,6 @@
         Ownership of these ideas and their implications are not tied to any individual, but to the collective group of thinkers and researchers who have contributed on these topics, represented by the organization Integrated-Developments.
         \emph{Formed by AngrySatan666, Mid 2025, to facilitate collaboration and discussion on Software Development and speculative scientific ideas.}
         We do not claim to have all the answers, nor do we expect our ideas to be universally accepted or embraced.
-
     \subsection{Religious and Philosophical Sensitivities}
         \hspace{1em}
         Though we do not shy away from discussing the philosophical implications of our ideas in a spiritual or religious sense.
@@ -179,27 +196,358 @@
 
 % <!-- [SS-6]: Introduction ----->
 \section{Introduction}
+    \renewcommand{\headertext}{(TECH: PoPE)\hspace{1em} SS-2: \hspace{1em}Introduction}
     \subsection{Where We Stand}
         \hspace{1em}
         Our current understanding of reality is hinged upon two pillars of scientific study.
         \emph{Quantum Mechanics}, the rules of the very small.
         and \emph{Relativity}, the rules of the very large.
+        These two pillars are individually robust and well-tested.
+        With more research and experimental evidence supporting them being produced everyday.
 
-        These two pillars, while individually robust and well-tested, remain fundamentally disconnected.
-        Where quantum mechanics governs the \emph{dynamically} probabilistic behaviors of particles and fields and their propagation throughout space and time.
+        Where quantum mechanics governs the \emph{dynamic} probabilistic behaviors of particles, fields and their propagation throughout space and time.
         But also their interactions with quantum fields, other particles, their own wavefunctions, and their environment.
+
         And where relativity describes the \emph{deterministic} geometric structures of spacetime itself, and the laws of physics that guide matter and energy within.
 
-        Standard quantum mechanics treats superposition as ontic and collapse as a probabilistic projection often tied to observation.
-        Relativity treats space and time as geometric backgrounds shaped by energy.
-        These frameworks remain disconnected and struggle with dark matter, dark energy, and the origin of time.
+        Both domains have frameworks and make claims that have been confirmed to high degrees of precision in countless experiments, across centuries of research.
 
-        We unify these domains by reinterpreting collapse as the primary physical process.
-        Energy always collapses; persistence emerges only via \emph{anchoring}.
-        Space, time, and matter arise statistically from successful persistence.
-        This \emph{collapse--churn} picture reframes quantum indeterminacy and relativistic geometry as consequences of the same substrate dynamics.
+    \subsection{The Divide}
+        \hspace{1em}
+        Interestingly, The domain of Relativity, where we perceive and exist within reality, is built entirely from the particles and fields governed by Quantum Mechanics.
+        Only at the atomic scales and above do the laws of Relativity begin to emerge from the underlying quantum substrate.
+        Anything smaller than this scale and the rules of Relativity break down completely, and only the laws of Quantum Mechanics govern the laws of physics.
 
-% <!-- [SS-6]: Content ----->
+        Yet, despite this clear hierarchical relationship, the two domains remain fundamentally disconnected.
+        Standard Quantum Mechanics breaks all the rules of Relativity in a myriad of seemingly paradoxical ways.
+        And Relativity breaks all the rules of Quantum Mechanics and its functions as a probabilistic framework.
+        All while both domains are baked into the very fabric of reality.
+        Both with experimentally persistent influences in their respective regimes.
+
+        Theories that attempt to unify these domains have been proposed for decades.
+        By scientists, philosophers, and general thinkers, yet none have been able to produce a fully satisfactory framework that can account for all the phenomena observed in both domains.
+        Some tantalizing theories at the bleeding edge of modern physics have made some profound claims.
+        Such theories as String Theory, Many Worlds Theory, Simulation Theory, and the Religious Theories of Creationism.
+        While also curating new theoretical phenomena such as Dark Matter, Hawking Radiation, The Higgs Fields, and other exotic concepts.
+        We find ourselves at a crossroads of understanding, where the very foundations of our knowledge are being challenged and reexamined.
+
+        It is here, that we find the motivation to explore new ideas and frameworks that can possibly bridge the gap between these two pillars of science.
+        And possibly confirm or deny the claims of these theoretical phenomena.
+        And lay to rest the paradoxes and contradictions that have plagued our research results for far too long.
+        To seek a deeper understanding of the nature of reality itself, and our place within it.
+
+    \subsection{A New Perspective}
+        \hspace{1em}
+        We attempt to unify these domains by conceptualizing what existence means and feels like to particles, matter, and \dots numbers.
+        In the theoretical ontology of numbers, or the idea of having a value.
+        What defines what a number can be, and its experience existing as a number within a system of Infinite Numbers.
+        And relating these concepts to the physical world around us.
+\newpage
+
+% <!-- [SS-7]: Thought Process ----->
+\section{Numerical Ontology}
+    \renewcommand{\headertext}{(TECH: PoPE)\hspace{1em} SS-3: \hspace{1em}Numerical Ontology}
+    \subsection{The Initial Curiosity}
+        \hspace{1em}
+        Numbers are abstract entities that represent quantities, values, and relationships.
+        They do not possess physical form or substance, and thus exist only as an idea created by us, to describe the world around us.
+        They became the building blocks of mathematics, and form the foundation of our understanding of the physical world.
+        At first glance they seem direct and simple. After all 1 is 1, and 2 is 2. Have 2 and lose 1, now you have 1. Pretty straightforward.
+
+        But when you start to dig deeper, it doesn't seem so simple anymore.
+        After-all, why is math and numbers seemingly so effective at describing the universe?
+        What does it mean for a number to exist?
+        Why is 1, 1 and 2, 2?
+        How can numbers be so precise yet also infinite?
+        How can numbers not only be infinite, but also infinite in an infinite amount of ways?
+        And how do numbers relate to the physical entities they represent?
+        And why do certain numbers seem to have special significance in the physical world, such as pi always being the relationship between a circle's circumference and diameter.
+        The fibonacci sequence seemingly appearing in various natural patterns and structures like a snails shell, the numbers of petals on a flower, and the spiral arms of galaxies.
+        Prime numbers and their unique properties in number theory that allows for advanced cryptographic systems, and some aspects of computer sciences.
+        Math seems to be the language of the universe, yet we never seem to question \emph{why??}
+
+        So in this section, we will do just that, and explore the nature of numbers from a philosophical and ontological perspective.
+        We will examine the different types of numbers, their properties, and their relationships to each other.
+        We will also consider the implications of these ideas for our understanding of reality itself.
+
+    \subsection{The Superposition of All Possible Value}
+        \hspace{1em}
+        First, since we are treating numbers as real, we must then say that the possibility of a number existing as any particular value would exist initially in superposition with all other possible numbers.
+        And that any one number is a singular collapsed state of this superposition.
+        Much like how our singularity, and possible universal superposition, holds all infinitely possible states of the universe within it.
+        But upon measurement or observation, only then does a definitive state collapse into reality, or for us, a number collapses to a specific value.
+        Exactly how a particle exists in a wavefunction superposition until it is observed, and then collapses.
+        Holding these ideas as fundamentally true, sets the stage for a new perspective on numbers and their relationship to the physical world.
+
+    \subsection{Neighborly Observing a Value}
+        \hspace{1em}
+        To begin, lets say that we have currently observed a random number, $X_n$, within a system.
+        This number could be anything, but in our case, the number $32$ was selected at random.
+        So, we have observed that $X_1 = 32$ in frame 1 of our numerical universe.
+        Now in Frame 2, the collapsed state of $32$ could look to its neighbors, and collapse them.
+        After all, if we have $32$, and know what makes $32$, then we can infer the existence of $X_2$ and $X_3$,
+        which would be $X_2 = 31$ and $X_3 = 33$. So now in Frame 2 we have Observed Values $X_1 = 32$, $X_2 = 31$, and $X_3 = 33$.
+        Now in frame 3, $X_2$ and $X_3$ could look to their neighbors, and observe that $X_4 = 30$, $X_5 = 34$, giving us a total of 5 observed values.
+        $X_1 = 32$, $X_2 = 31$, $X_3 = 33$, $X_4 = 30$, and $X_5 = 34$. This process would obviously continue indefinitely, with each observed value collapsing its neighbors in the subsequent frame or Tick, as a computer program would call it.
+
+        So what would our first collapsed state witness as it looked out at its neighbors collapsing their neighbors?
+        Well. In Tick 1 the universal state has only 1 collapsed value. Itself.
+        In Tick 2, we have 3 collapsed values.
+        Essentially tripling the size of the numbers universe.
+        In Tick 3, we have 5 collapsed values.
+        In Tick 4, we have 7 collapsed values.
+        In each new Tick the number of collapsed values increases and so does the overall size of the numerical universe.
+        Appearing to our first collapsed state as if the numerical universe is expanding outwards in all directions, with itself at the center of it all.
+        Exactly like how our own universe appears to be expanding outwards in all directions, with us at the center of it all.
+
+        But this seems to suggest that observation isn't relevant as the controlling factor in the universal function,
+        rather that observation is merely a byproduct of the universal function itself, after it has already collapsed a definitive state.
+        These collapsed states then increase by magnitude, the probability that another state will collapse near it, solely through its ability to observe its neighbors.
+        Giving rise to a potential field of collapsed states during the next universal Tick function.
+
+    \subsection{The Null State of 0}
+        \hspace{1em}
+        But lets dig a little deeper now. In order to have any value at all. We must know what the absence of all value would look like.
+        So in our case, without $0$, we would not be able to properly define what $32$ is.
+        We wouldn't be able to define what $102840937150$ is, or what $-12$ is.
+        We wouldn't be able to define any number at all.
+        So in order to define any number, we must first define the systems null state, or $0$.
+        This null state serves as the foundation upon which all other numbers are built.
+        So 0 is not just a value of none, but rather the very definition of a numerical universes nothingness.
+        The field in which all other numbers \emph{exist} within. Anything outside of this field cannot be a number.
+        In analogies, 0 is what forces 1,2,3,4, and doesn't allow for 1,5,cow,blue,tree,8,2.
+        So we can say that $0$ isn't purely the absence of all value, but rather all infinitely possible values existing in a singular point, waiting to be collapsed into infinity.
+        Similarly, in order to define any particle, we must first define the null vacuum state, or the absence of all particles, and this null vacuum state brings us to singularity.
+        Or, all infinitely possible particles existing in a singular infinitely dense point, waiting to be collapsed into infinity.
+
+    \subsection{The Smallest Possible Measurement, +1}
+        So now that we know what $0$ is, why does $32$ observe $31$ and $33$? Why not $60$ and $7$?
+        We have our Null State of $0$, and we have a measured value of $32$, whats forcing $32$ to observe only $31$ and $33$ as its neighbors?
+        Well, that means we need to define what the smallest possible measurement in value is.
+        We all know this very well, and its the measurement of distance between our null state $0$, and its nearest neighbor $1$.
+        So by defining $0$, and $1$ as our smallest possible measurement in value, the rest of the numbers universe is forced to observe its neighbors in increments of $1$.
+        So $32$ can only observe $31$ and $33$ as its neighbors, because those are the only values that are the smallest measured unit away from itself.
+        Similarly, in order to define any particle, we must first define the smallest possible measurement in space and time, or its geometry.
+        Why is it geometry when particles have rotation, spin, and acceleration?
+        Well, how do we measure rotation, spin?
+        By measuring the changes in its geometry over time.
+        What about acceleration?
+        By measuring the changes in its geometric position, in relation to other particles over time.
+        So without geometry, we cannot measure anything about a particles physical existence at all.
+        And we know the smallest possible measurement in space as the Planck Length, and in time as the Planck Second.
+
+    \subsection{Triadic Emergence from Binary Collapse}
+        \hspace{1em}
+        But we also must acknowledge in this, that observation of a state, immediately infers its relational negative.
+        If you know what it means to have $+1$, then you \emph{MUST} know what it means to have $-1$
+        This is not to say that any collapsed states results in two outcomes of a positive and a negative,
+        but rather that the negative of a collapsed state is inherently the collapsed states in reverse.
+        Lets look at this from a different perspective.
+
+        Lets say we have a maze of 20 possible paths total, with only 1 exit.
+        We encode the paths into the qu-bits of a quantum computer, and raise them into superposition.
+        We then collapse the qu-bits into a singular state, and observe the collapsed state that encodes for the correct path leading us to the exit as a finite binary $1$.
+        While all other path collapse into a finite binary $0$.
+        But this is also showing us the path that takes us from the exit, to the center of the maze, by reversing the path we took to get to the exit.
+        Even though we only observed the path to the exit, by a single binary collapsed outcome. Without anymore collapsed states.
+        Whats the null state of this system?
+        The null state of this system is the maze itself!
+        In order for a path to exist in this system, the maze must first exist with this path as part of it.
+        So in this case, the negative of our collapsed state is inherently the collapsed states direct inverse.
+        And this would have to be true for numbers as well.
+        So lets go back to our initial numerical ontology example.
+
+        If we have observed in Tick 1 that $X_1 = 32$, then \emph{immediately} we also infer the direct inverse of that $X_{-1} = -32$.
+        Or more simply put, that the collapsed state of $X_1$ is $X_1 = (-32, +32)$
+        But, to have any value at all, we must still know what our null state of $0$ is.
+        So we can say that in Tick 1, we emergently observed a Triadic set of values, from a single binary collapse.
+        $X_1 = (-32, 0, 32)$ Then the function continues as before.
+        $X_1$ observes its neighbors, and collapses them, giving us $X_2 = (-31, 0, +31)$ and $X_3 = (-33, 0, +33)$.
+
+        This sort of triadic emergence is fundamental in nature.
+        Presenting itself in abundance.
+        Space is a triadic, of Length, Width, and Height.
+        Time is a triadic, of Past, Null Present, and Future.
+        Matter is triadic, built from (+) Protons, (0) Neutrons, and (-) Electrons.
+        Magnetism is triadic, (+) North, (0) Neutral, and (-) South.
+        Electricity is triadic, (+) Positive, (0) Neutral, and (-) Negative.
+        Even the human experience is triadic, of (+) Pleasure, (0) Numb, (-) Discomfort
+        This triadic emergence from binary collapse is fundamental to the nature of reality itself.
+
+    \subsection{True Infinity}
+        So now we have established a few things that must be, or \emph{'constants'} in order for a superpositioned system to collapse to a singular definitive state.
+        \begin{customenumerate}[label=\roman*.]
+            \item The systems null state of $0$ must be defined
+            \item The systems smallest possible measurement of $1$ must be defined
+            \item Any collapsed state immediately infers its relational negative.
+            \item Binary collapse of a singular state results in the emergent observation of a triadic set of values.
+        \end{customenumerate}
+
+        This appears to be a complete framework at first take, but there is one more fundamental aspect of that we must address.
+        And that is the concept of infinity.
+        To truly have infinite anything, that infinite \emph{thing} must also have an infinite amount of ways to present itself.
+        And currently, we have only defined 2 single infinite line of numbers.
+        Which is so far from true infinity, that it we can say there is no infinity.
+        So how do numbers present themselves in an infinite amount of ways, and satisfy this requirement?
+        And how does this relate to the physical world around us?
+        Well, what is an object in the physical world, that we have defined and experimentally confirmed its existence, that creates a new infinity within.
+        Thats right!
+        I give you the numerical universes relational \emph{black hole} the \emph{decimal point!}
+        By introducing the decimal point, we have now created an interior universe within each number.
+        So now we have the single dual-line of infinity, starting with $0$, and adding $+/-1$ to infinity.
+        But now we also have infinity sitting within $0.0$ and $1.0$, by adding $+/-0.1$ to infinity.
+        Well wait a second. After 10 increments of $0.1$, we reach $1.0$, so how is this infinity?
+        Well because of fractions!
+        We could say that;
+        \be
+            X_n = \left(\frac{1}{2}\right), \left(\frac{1}{3}\right), \left(\frac{1}{4}\right)
+        \ee
+        Now introduce the black hole decimal point and we have;
+        \be
+            X_n = \left(\frac{1}{1.1}\right), \left(\frac{1}{1.2}\right), \left(\frac{1}{1.3}\right), \\
+            X_n = \left(\frac{1}{2.1}\right), \left(\frac{1}{3.1}\right), \left(\frac{1}{4.1}\right)
+        \ee
+        And this is just scratching the surface of the infinite possibilities that arise from introducing the decimal point.
+        To quickly show how this creates true infinity, we can look at an extremely nested fractional.
+        \be
+            X_n = \left(\frac{\left(\frac{1.1}{2.1}\right)}{\left(\frac{1.1}{3.4}\right)}\right)
+        \ee
+        So now we have numbers existing within numbers, existing within numbers, existing within numbers, stretching into infinity, in an infinite amount of ways.
+        And this is exactly how the physical world around us appears to be structured as well.
+        With numerous studies suggesting that black holes may contain entire universes within them, and that our own universe may be contained within a black hole in a higher-dimensional space.
+        And this theoretical framework for a numerical universe seems to align with these ideas, suggesting that the structure of reality itself may be fundamentally fractal and self-similar, with infinite complexity and depth.
+
+    \subsection{Modeling the Numerical Universe}
+        \hspace{1em}
+        So now that we have established a framework for a numerical universe, we can attempt to model it mathematically.
+
+        \begin{postulate}{System Definition}
+            The numerical universe can be defined as the complete state space $\mathcal{N}$ of all possible numerical values:
+            \be
+                \mathcal{N} = \{n \in \bbR : n \text{ represents a potential numerical state}\}
+            \ee
+        \end{postulate}
+
+        \begin{postulate}{Superposition State}
+            Before observation, the numerical universe exists in a quantum-like superposition state $|\Psi_{\mathcal{N}}\rangle$:
+            \be
+                |\Psi_{\mathcal{N}}\rangle = \sum_{n \in \mathbb{Z}} \alpha_n |n\rangle, \quad \text{where } \sum_{n} |\alpha_n|^2 = 1
+            \ee
+            Here $\alpha_n$ are complex probability amplitudes and $|n\rangle$ are the basis states representing definite integer values.
+        \end{postulate}
+
+        \begin{postulate}{Observation and Collapse Operator}
+            The process of observation is represented by a projection operator $\hat{P}_n$ that collapses the superposition:
+            \be
+                \hat{P}_n : |\Psi_{\mathcal{N}}\rangle \mapsto |n\rangle \text{ with probability } |\alpha_n|^2
+            \ee
+        \end{postulate}
+
+        \begin{postulate}{Neighborly Observation Function}
+            Given a collapsed state $n_0$, the neighbor observation function $\mathcal{C}$ determines the adjacent states:
+            \be
+                \mathcal{C}(n_0) = \{n_0 - 1, n_0 + 1\} \subset \mathbb{Z}
+            \ee
+            This represents the fundamental unit increment principle in our framework.
+        \end{postulate}
+
+        \begin{postulate}{Triadic Emergence Operator}
+            The triadic emergence from binary collapse is captured by operator $\hat{T}$:
+            \be
+                \hat{T}(n) = (-n, 0, +n) \in \mathbb{Z}^3
+            \ee
+            This maps any observed integer value $n$ to its triadic representation including its negative, the null state, and itself.
+        \end{postulate}
+
+        \begin{postulate}{Temporal Evolution}
+            The expansion process can be modeled as a discrete-time evolution where at time step $t$:
+            \be
+                \mathcal{S}_t = \bigcup_{n \in \mathcal{S}_{t-1}} \mathcal{C}(n), \quad \text{with } \mathcal{S}_0 = \{n_{\text{initial}}\}
+            \ee
+            where $\mathcal{S}_t$ represents the set of all collapsed integer states at time $t$.
+        \end{postulate}
+
+        \begin{postulate}{Fractal Infinity via Decimal Points}
+            The decimal notation enables infinite compression analogous to black hole physics. The decimal point is not a physical entity but represents the mathematical gateway to infinite subdivision:
+            \be
+                \mathcal{N}_{\text{fractal}} = \left\{\frac{n_1.n_2n_3\ldots}{m_1.m_2m_3\ldots} : n_i,m_i \in \mathbb{Z}, \text{infinite precision}\right\}
+            \ee
+            This models how black holes achieve infinite density compression - each integer interval contains infinite fractional subdivisions, creating true hierarchical infinity without requiring the decimal point itself to possess functional properties.
+        \end{postulate}
+
+        \begin{postulate}{Complete System Properties}
+            The numerical universe framework encompasses the following fundamental characteristics:
+            \begin{itemize}
+                \item \textbf{Null State:} $0 \in \mathcal{N}$ serves as the foundational reference
+                \item \textbf{Unit Increment:} Minimal measurement $\delta = 1$ defines neighbor relationships
+                \item \textbf{Symmetry:} For every $n \in \mathcal{N}$, we have $-n \in \mathcal{N}$
+                \item \textbf{Completeness:} $\mathcal{N} = \bbR$ encompasses all real numbers
+                \item \textbf{Infinite Dimensionality:} Through fractal decimal structure
+            \end{itemize}
+        \end{postulate}
+
+        \begin{postulate}{Generalized Philosophical Model}
+            The numerical universe framework can be generalized to a unified philosophical representation:
+            \be
+                | \mathcal{U}\rangle = \{-\infty \cdot \infty\} \cup \{0\} \cup \{+\infty \cdot \infty\}
+            \ee
+            where $\mathcal{U}$ represents the complete universal structure with the null state $0$ existing as the singular foundational point between two infinite expansions of negative and positive numerical domains, each containing infinite hierarchical subdivisions through fractal decimal compression.
+        \end{postulate}
+
+        With these rigorously defined mathematical structures, we can now explore the properties and behaviors of the numerical universe and investigate how they relate to quantum mechanics, relativity, and fundamental physics.
+
+        This section has laid the groundwork for a new universal perspective,
+        In the next section we will build upon these ideas and root them in established theories and frameworks.
+\newpage
+
+% <!-- [SS-8]: The Theory ----->
+\section{The Working Theory}
+    \renewcommand{\headertext}{(TECH: PoPE)\hspace{1em} SS-4: \hspace{1em}The Working Theory}
+
+    Collapse is the Universal Foundation.
+
+    The laws of Relativity are just the emergent byproduct's of this universal function at large scales.
+
+    Collapse of a state favors the highest probability of existence, and de-coheres all other possibilities
+
+    Reality chose this specific branch of outcome because it gives rise to the most enrichment of probabilities as a whole.
+    Any different outcome would result in a less enriched state of existence.
+    Thus our reality seems to be perfectly optimized for allowing all of this to exist because it systematically collapsed into this state of highest probability enrichment.
+
+    While in singularity all infinitely possible states of existence exist in superposition,
+    but the act of collapse selects a specific outcome, thereby defining the fabric of reality as we perceive it.
+
+    During the collapse of a state, the system actually collapses a state into all of its possibilities,
+    but only the most probable outcome remains coherent and observable, while all other possibilities de-cohere and become non-observable.
+    But a collapsed states first given attribute is geometry.
+
+    This geometry, while de-cohered, still exerts its influences on reality since particles experience no time and the same moment its born, it also dies regardless of distance traveled.
+    Meaning that particles don't concern themselves with distance or time. Here is there, and then is now.
+    Effectively allowing for instantaneous local and non-local interactions between particles and fields.
+
+    This influence is what generates the effects of wavefunction interference patterns, yet retain the ability to collapse to a single defining state.
+    This results in only one true 'Universe', and it's the one we are currently experiencing.
+
+    Dark Matter are simply the de-cohered geometries of collapsed states that didn't make the cut, still exerting their geometry on reality.
+    Dark Matter would then effectively 'clump' together around pre-collapsed states, since they these states increase the probability of neighbor collapse through observation.
+
+    Black Holes do not compress matter into an infinitely dense point, but rather exert such extreme curvature and gravitational forces on space-time that it rips atoms apart, particle by particle, until their probability of collapse is so low that they de-cohere.
+    This results in a singularity of pure de-coherence.
+    A return to the singularity.
+
+    A universal singularity contained no mass, and no particles.
+    Existing as pure potential-energy, in a state of infinite superposition.
+    Where time and space are meaningless concepts.
+    This singularity then collapses in time through its own evolution, giving rise to the Big Bang.
+
+    This collapse then gives rise to the first particles, and fields, which then interact with each other, and give rise to the first atoms, and molecules.
+    These atoms and molecules then interact with each other, and begin the observational collapse influence, and forcing other collapsed states to stay collapsed.
+
+    Time dilation is the emergent property of the collapse function calculating the highest probability of existence, and de-coherence of the rest.
+    But since acceleration grants more probability of existence, time dilation is the universes method of ensuring every systems calculations are finished at the exact same moment.
+    Gravity reduces the probability of existence, and thus it too contains time dilation effects.
+
+\section{}
 
 % <!-- [SS-]: Conclusions ----->
 \end{document}
